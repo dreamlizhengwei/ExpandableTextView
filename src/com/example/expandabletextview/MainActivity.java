@@ -23,7 +23,7 @@ public class MainActivity extends Activity {
 //		expand_text_view.setmMaxCollapsedLines(1);
 		
 		
-		findViewById(R.id.testtv).setOnClickListener(new OnClickListener() {
+		findViewById(R.id.btn).setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {

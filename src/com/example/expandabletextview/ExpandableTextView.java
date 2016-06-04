@@ -6,6 +6,7 @@ import android.animation.ValueAnimator;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -252,10 +253,17 @@ public class ExpandableTextView extends LinearLayout implements
 	}
 
 	private void init() {
-		mExpandDrawable = getContext().getDrawable(
-				R.drawable.activity_arrow_down);
-		mCollapseDrawable = getContext().getDrawable(
-				R.drawable.activity_arrow_up);
+		if(Build.VERSION.SDK_INT>=21){
+			mExpandDrawable = getContext().getDrawable(
+					R.drawable.activity_arrow_down);
+			mCollapseDrawable = getContext().getDrawable(
+					R.drawable.activity_arrow_up);
+		}else {
+			mExpandDrawable = getContext().getResources().getDrawable(
+					R.drawable.activity_arrow_down);
+			mCollapseDrawable = getContext().getResources().getDrawable(
+					R.drawable.activity_arrow_up);
+		}
 		setOrientation(LinearLayout.VERTICAL);
 	}
 
